@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "ÕIS2",
+    "version": "1.0",
+    "description": "Makes ÕIS2 slightly more usable",
+    "icons": {
+        "48": "images/logo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://ois2.ut.ee/*"
+            ],
+            "js": [
+                "ois.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://auth.ut.ee/*"
+            ],
+            "js": [
+                "auth.js"
+            ]
+        }
+    ]
+}
