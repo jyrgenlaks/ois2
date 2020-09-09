@@ -22,6 +22,14 @@
             "js": [
                 "auth.js"
             ]
+        },
+        {
+            "matches": [
+                "*://moodle.ut.ee/*", "*://login.microsoftonline.com/*"
+            ],
+            "js": [
+                "moodle.js"
+            ]
         }
     ]
 }
