@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "ÕIS2",
     "version": "1.0",
-    "description": "Makes ÕIS2 slightly more usable",
+    "description": "Makes ÕIS2 slightly more usable (and some other sites as well)",
     "icons": {
         "48": "images/logo.png"
     },
@@ -29,6 +29,14 @@
             ],
             "js": [
                 "moodle.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://*.mathworks.com/*"
+            ],
+            "js": [
+                "mathworks.js"
             ]
         }
     ]
