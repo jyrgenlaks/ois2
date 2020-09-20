@@ -1,5 +1,5 @@
 // Searching for "Logi sisse" buttons
-login();
+setInterval(login, 1000);
 
 // Styling the page
 //setInterval(stylize, 300);

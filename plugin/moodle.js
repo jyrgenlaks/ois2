@@ -4,7 +4,7 @@ setInterval(function () {
     // Click "Sisene" on moodle homepage
     var spans = document.getElementsByTagName("a");
     for (var i = 0; i < spans.length; i++) {
-        if (spans[i].innerText.includes("Sisene")) {
+        if (spans[i].innerText.includes("Sisene")  ||  spans[i].innerText.includes("Log in")) {
             console.log(spans[i]);
             spans[i].click();
         }
@@ -15,7 +15,7 @@ setInterval(function () {
     for (var i = 0; i < spans.length; i++) {
         if (spans[i].innerText.includes("TÜ arvutivõrgu konto")) {
             console.log(spans[i]);
-            if(nr_of_times_clicked < 5){
+            if(nr_of_times_clicked < 2){
                 spans[i].click();
                 nr_of_times_clicked++;
             }
