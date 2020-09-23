@@ -13,7 +13,7 @@ setInterval(function () {
     // Click the OpenID choice on Moodle login page
     var spans = document.getElementsByTagName("h5");
     for (var i = 0; i < spans.length; i++) {
-        if (spans[i].innerText.includes("TÜ arvutivõrgu konto")) {
+        if (spans[i].innerText.includes("üliõpilane ja töötaja")) {
             console.log(spans[i]);
             if(nr_of_times_clicked < 2){
                 spans[i].click();
