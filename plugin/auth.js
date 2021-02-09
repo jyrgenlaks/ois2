@@ -7,7 +7,7 @@ setInterval(function () {
         // Here the fields are filled, press the login button
         var buttons = document.getElementsByTagName("button");
         for (var i = 0; i < buttons.length; i++) {
-            if (buttons[i].innerText === "Logi sisse") {
+            if (buttons[i].innerText === "Logi sisse" || buttons[i].innerText === "Login") {
                 buttons[i].click();
             }
         }

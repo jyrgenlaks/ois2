@@ -11,7 +11,7 @@ setInterval(refreshSession, 60 * 1000);
 function login() {
     var spans = document.getElementsByTagName("span");
     for (var i = 0; i < spans.length; i++) {
-        if (spans[i].innerText === "Logi sisse") {
+        if (spans[i].innerText === "Logi sisse" || spans[i].innerText === "Login now" || spans[i].innerText === "Login") {
             console.log(spans[i]);
             spans[i].click();
         }
