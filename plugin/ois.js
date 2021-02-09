@@ -20,7 +20,7 @@ function login() {
 
 function stylize() {
     bgColor = "#111";
-    fgColor = "#FF0";
+    fgColor = "#FFF";
     var elementTypes = ["body", "button", "mat-toolbar-row", "mat-toolbar", "mat-card", "footer", "b", "span"];
     for (var type = 0; type < elementTypes.length; type++) {
         var elements = document.getElementsByTagName(elementTypes[type]);

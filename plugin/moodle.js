@@ -44,6 +44,15 @@ setInterval(function () {
             document.getElementById("idSIButton9").click();
         }
     }
+
+    // Click the "Extend session" button
+    var elements = document.getElementsByClassName("btn-primary");
+    for (var i = 0; i < elements.length; i++) {
+        if(elements[i].innerText.includes("Extend session")){
+            elements[i].click();
+        }
+    }
+    
 }, 500);
 
 
