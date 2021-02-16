@@ -1,9 +1,22 @@
 // Searching for "Logi sisse" buttons
-setInterval(login, 1000);
+chrome.storage.local.get('autologin', function (result) {
+    if(result.autologin == undefined){
+        result.autologin = true;
+    }
+    if(result.autologin){
+        setInterval(login, 1000);
+    }
+});
 
 // Styling the page
-//setInterval(stylize, 300);
-//setTimeout(stylize, 1000);
+chrome.storage.local.get('darkmode', function (result) {
+    if(result.darkmode == undefined){
+        result.darkmode = true;
+    }
+    if(result.darkmode){
+        setInterval(stylize, 300);
+    }
+});
 
 // Refresh the session token every minute
 setInterval(refreshSession, 60 * 1000);

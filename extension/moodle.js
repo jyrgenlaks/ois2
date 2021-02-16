@@ -1,6 +1,15 @@
 var nr_of_times_clicked = 0;
 
-setInterval(function () {
+chrome.storage.local.get('autologin', function (result) {
+    if(result.autologin == undefined){
+        result.autologin = true;
+    }
+    if(result.autologin){
+        setInterval(clickButtons, 500);
+    }
+});
+
+function clickButtons() {
     // Click "Sisene" on moodle homepage
     var spans = document.getElementsByTagName("a");
     for (var i = 0; i < spans.length; i++) {
@@ -53,7 +62,7 @@ setInterval(function () {
         }
     }
     
-}, 500);
+}
 
 
 

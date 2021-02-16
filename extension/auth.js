@@ -1,4 +1,14 @@
-setInterval(function () {
+
+ chrome.storage.local.get('autologin', function (result) {
+    if(result.autologin == undefined){
+        result.autologin = true;
+    }
+    if(result.autologin){
+        setInterval(clickButtons, 500);
+    }
+});
+
+function clickButtons(){
     // Check if the username & password fields have been filled out
     var usr = document.getElementById("username").value;
     var pwd = document.getElementById("password").value;
@@ -12,4 +22,4 @@ setInterval(function () {
             }
         }
     }
-}, 500);
+}
