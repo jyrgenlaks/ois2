@@ -34,7 +34,7 @@ function login() {
 function stylize() {
     bgColor = "#111";
     fgColor = "#FFF";
-    var elementTypes = ["body", "button", "mat-toolbar-row", "mat-toolbar", "mat-card", "footer", "b", "span"];
+    var elementTypes = ["body", "button", "mat-toolbar-row", "mat-toolbar", "mat-card", "footer", "b", "mat-chip"];
     for (var type = 0; type < elementTypes.length; type++) {
         var elements = document.getElementsByTagName(elementTypes[type]);
         for (var i = 0; i < elements.length; i++) {
@@ -43,17 +43,13 @@ function stylize() {
         }
     }
 
-
-    var elements = document.getElementsByClassName("mat-button-wrapper");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.color = fgColor;
-        elements[i].style.background = bgColor;
-    }
-
-    var elements = document.getElementsByClassName("mat-drawer-inner-container");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.color = fgColor;
-        elements[i].style.background = bgColor;
+    var elementTypes = ["mat-drawer-inner-container", "mat-cell", "mat-header-cell", "mat-button-wrapper", "mat-tab-link", "ng-star-inserted"];
+    for (var type = 0; type < elementTypes.length; type++) {
+        var elements = document.getElementsByClassName(elementTypes[type]);
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.color = fgColor;
+            elements[i].style.background = bgColor;
+        }
     }
 
     var base = document.getElementsByTagName("mat-sidenav-content")[0]
