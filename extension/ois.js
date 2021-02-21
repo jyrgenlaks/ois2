@@ -18,9 +18,6 @@ chrome.storage.local.get('darkmode', function (result) {
     }
 });
 
-// Refresh the session token every minute
-setInterval(refreshSession, 60 * 1000);
-
 function login() {
     var spans = document.getElementsByTagName("span");
     for (var i = 0; i < spans.length; i++) {
@@ -67,13 +64,4 @@ function stylize() {
             elements[i].style.background = bgColor;
         }
     }
-}
-
-
-function refreshSession() {
-    console.log("doing request");
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "https://ois2.ut.ee/api/academic/year", true);
-    xmlHttp.send(null);
-    return xmlHttp.responseText;
 }
