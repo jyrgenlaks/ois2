@@ -9,6 +9,30 @@ chrome.storage.local.get('autologin', function (result) {
     }
 });
 
+setTimeout(fixLinkRedirects, 500);
+
+function fixLinkRedirects(){
+    links = document.getElementsByTagName("a");
+
+    // Loop through all links
+    for(var i = 0; i < links.length; i++){
+        var link = links[i];
+
+        // Check if the link should have a redirect parameter
+        /* // This method unfortunately did not work through the plugin,
+           // but it works when manually entering to browser console ...
+        if(link.onclick != null){
+            if(link.onclick.toString().includes("&redirect=1")){*/
+
+                // If it should, but it doesn't have it yet, then add it!
+                if(!link.href.includes("&redirect=1") && link.href.includes("?")){
+                    link.href += "&redirect=1";
+                }
+        /*  }
+        }*/
+    }
+}
+
 function clickButtons() {
     // Click "Sisene" on moodle homepage
     var spans = document.getElementsByTagName("a");
