@@ -1,5 +1,6 @@
+var last_pwd_length = 0;
 
- chrome.storage.local.get('autologin', function (result) {
+chrome.storage.local.get('autologin', function (result) {
     if(result.autologin == undefined){
         result.autologin = true;
     }
@@ -13,7 +14,10 @@ function clickButtons(){
     var usr = document.getElementById("username").value;
     var pwd = document.getElementById("password").value;
 
-    if (usr.length > 2 && pwd.length > 2) {
+    var pwd_length = pwd.length;
+    if (usr.length > 2 && pwd_length - last_pwd_length >= 8) {
+        // There is text in the username field and a lot of text appeared in
+        // the password field at once - probably some tool auto-filled it.
         // Here the fields are filled, press the login button
         var buttons = document.getElementsByTagName("button");
         for (var i = 0; i < buttons.length; i++) {
@@ -22,4 +26,5 @@ function clickButtons(){
             }
         }
     }
+    last_pwd_length = pwd_length;
 }
