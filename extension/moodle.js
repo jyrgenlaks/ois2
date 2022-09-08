@@ -1,11 +1,17 @@
 var nr_of_times_clicked = 0;
+var last_pwd_length = 0;
 
 chrome.storage.local.get('autologin', function (result) {
     if(result.autologin == undefined){
         result.autologin = true;
     }
     if(result.autologin){
-        setInterval(clickButtons, 500);
+        var interval = 500;
+        if(window.location.href.includes("login.microsoftonline.com")){
+            // Need to react fast for _reliably_ detecting password field auto-fills
+            interval = 100;
+        }
+        setInterval(clickButtons, interval);
     }
 });
 
@@ -17,19 +23,10 @@ function fixLinkRedirects(){
     // Loop through all links
     for(var i = 0; i < links.length; i++){
         var link = links[i];
-
-        // Check if the link should have a redirect parameter
-        /* // This method unfortunately did not work through the plugin,
-           // but it works when manually entering to browser console ...
-        if(link.onclick != null){
-            if(link.onclick.toString().includes("&redirect=1")){*/
-
-                // If it should, but it doesn't have it yet, then add it!
-                if(!link.href.includes("&redirect=1") && link.href.includes("?")){
-                    link.href += "&redirect=1";
-                }
-        /*  }
-        }*/
+        // If it should, but it doesn't have it yet, then add it!
+        if(!link.href.includes("&redirect=1") && link.href.includes("?")){
+            link.href += "&redirect=1";
+        }
     }
 }
 
@@ -72,10 +69,14 @@ function clickButtons() {
     var spans = document.getElementsByName("passwd");
     for (var i = 0; i < spans.length; i++) {
         var pwd = spans[i];
-        if (pwd.value.length > 2) {
-            // Here the field is filled, press the login buttonü
+        var pwd_length = pwd.value.length
+        if (pwd_length - last_pwd_length >= 8) {
+            // A lot of characters appeared in the input field at once,
+            // most likely something auto-filled it with the correct password.
+            // Now press the login button!
             document.getElementById("idSIButton9").click();
         }
+        last_pwd_length = pwd_length;
     }
 
     // Click the "Extend session" button
@@ -85,10 +86,4 @@ function clickButtons() {
             elements[i].click();
         }
     }
-    
 }
-
-
-
-
-
