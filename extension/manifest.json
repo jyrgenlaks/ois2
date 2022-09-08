@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "ÕIS2",
     "version": "1.0",
     "description": "Makes ÕIS2 slightly more usable (and some other sites as well)",
@@ -41,7 +41,7 @@
         }
     ],
     "permissions": ["storage"],
-    "browser_action": {
+    "action": {
         "default_icon": "images/logo.png",
         "default_title": "ÕIS2",
         "default_popup": "popup/index.html"
