@@ -18,8 +18,8 @@ Browser plugin for fixing problems with mainly SIS2 and some other sites as well
 * Click `Load Temporary Add-on...`
 * Browse to the repo folder, choose the `extension/manifest.json` file and click `Open`
 
-## Google Chrome
+## Google Chrome & Chromium & Opera
 * In the address bar enter `chrome://extensions`
-* On the top right corner enable `Developer mode`
+* In the top right corner enable `Developer mode`
 * Click the `Load unpacked` button that appeared
 * Navigate to the `extension` subfolder of the repo and click `Select Folder`
